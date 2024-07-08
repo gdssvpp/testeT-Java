@@ -1,24 +1,31 @@
 # Documentação
 
-## Estrutura de Código Entidades (Modelos):
+## Estrutura de Código 
 
-### Eu defini entidades Carro, Marca e Modelo utilizando anotações JPA (@Entity, @Id, @GeneratedValue, etc.) 
-para mapeamento objeto-relacional. Isso facilita a persistência de objetos Java em banco de dados relacionais. Repositórios:
+### Entidades (Modelos):
+Eu defini entidades Carro, Marca e Modelo utilizando anotações JPA (@Entity, @Id, @GeneratedValue, etc.) para mapeamento objeto-relacional. Isso facilita a persistência de objetos Java em banco de dados relacionais. 
 
-### Utilização de interfaces de repositório (CarroRepository, ModeloRepository, MarcaRepository) 
-que estendem JpaRepository. Isso aproveita o poder do Spring Data JPA para operações de persistência CRUD básicas e consultas personalizadas. Serviços:
+### Repositórios:
+Utilização de interfaces de repositório (CarroRepository, ModeloRepository, MarcaRepository) que estendem JpaRepository. Isso aproveita o poder do Spring Data JPA para operações de persistência CRUD básicas e consultas personalizadas. 
 
-### Os serviços (CarroService, ModeloService, MarcaService) 
-encapsulam a lógica de negócios e orquestram as operações entre os controladores e os repositórios. Isso promove a separação de preocupações e facilita a reutilização de código. Controladores (Controllers):
+### Serviços: 
+Os serviços (CarroService, ModeloService, MarcaService) encapsulam a lógica de negócios e orquestram as operações entre os controladores e os repositórios. Isso promove a separação de preocupações e facilita a reutilização de código. 
 
-### Os controladores (CarroController, ModeloController, MarcaController) 
-são responsáveis por receber requisições HTTP, chamar os métodos apropriados nos serviços e retornar respostas HTTP. Aqui eu gerenciei as operações de CRUD e qualquer lógica adicional necessária para lidar com requisições. Tratamento de Erros:
+### Controladores (Controllers): 
+Os controladores (CarroController, ModeloController, MarcaController) são responsáveis por receber requisições HTTP, chamar os métodos apropriados nos serviços e retornar respostas HTTP. Aqui eu gerenciei as operações de CRUD e qualquer lógica adicional necessária para lidar com requisições. 
 
-### Tratamento de exceções (@ExceptionHandler, exceções personalizadas) 
-para lidar com erros de forma controlada e retornar respostas HTTP adequadas (como o exemplo de RuntimeException para marca não encontrada). Integração com Banco de Dados:
+### Tratamento de Erros:
+Tratamento de exceções (@ExceptionHandler, exceções personalizadas)  para lidar com erros de forma controlada e retornar respostas HTTP adequadas (como o exemplo de RuntimeException para marca não encontrada).
 
-### Uso de Hibernate com JPA para mapear entidades Java para tabelas no banco de dados. 
-Configurações de chave estrangeira (@ManyToOne, @OneToMany) são utilizadas para definir relacionamentos entre entidades. Decisões Tomadas Spring Boot: Utilização do Spring Boot para facilitar a configuração e o desenvolvimento de aplicações Java, com configuração automática e dependências simplificadas.
+### Integração com Banco de Dados: 
+Uso de Hibernate com JPA para mapear entidades Java para tabelas no banco de dados. Configurações de chave estrangeira (@ManyToOne, @OneToMany) são utilizadas para definir relacionamentos entre entidades. 
+Optei por utilizar banco H2 para ficar algo mais dinâmico porém, um PostgreSQL ou MySQL seriam candidatos para essa aplicação.
+
+## Decisões Tomadas 
+
+### Spring Boot: Utilização do Spring Boot para facilitar a configuração e o desenvolvimento de aplicações Java, com configuração automática e dependências simplificadas.
+
+### Optei por utilziar DTO na criação/visualização do Carro para que o modelo final em JSON ficasse como o modelo enviado com o domínio + /cars.json ou /cars_by_brand.json.
 
 ### JPA e Hibernate: 
 Escolha do Spring Data JPA com Hibernate como provedor JPA padrão, aproveitando a abstração de banco de dados e mapeamento objeto-relacional.
