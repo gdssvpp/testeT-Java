@@ -23,9 +23,11 @@ Optei por utilizar banco H2 para ficar algo mais dinâmico porém, um PostgreSQL
 
 ## Decisões Tomadas 
 
-### Spring Boot: Utilização do Spring Boot para facilitar a configuração e o desenvolvimento de aplicações Java, com configuração automática e dependências simplificadas.
+### Spring Boot: 
+Utilização do Spring Boot para facilitar a configuração e o desenvolvimento de aplicações Java, com configuração automática e dependências simplificadas.
 
-### Optei por utilziar DTO na criação/visualização do Carro para que o modelo final em JSON ficasse como o modelo enviado com o domínio + /cars.json ou /cars_by_brand.json.
+### DTO(Data Transfer Object)
+Optei por utilziar DTO na criação/visualização do Carro para que o modelo final em JSON ficasse como o modelo enviado com o domínio + /cars.json ou /cars_by_brand.json.
 
 ### JPA e Hibernate: 
 Escolha do Spring Data JPA com Hibernate como provedor JPA padrão, aproveitando a abstração de banco de dados e mapeamento objeto-relacional.
