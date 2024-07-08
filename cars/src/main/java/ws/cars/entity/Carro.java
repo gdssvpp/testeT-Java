@@ -2,6 +2,9 @@ package ws.cars.entity;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "carros")
 public class Carro {
@@ -11,8 +14,7 @@ public class Carro {
     private Long id;
 
     @ManyToOne
-    @Column(nullable = false)
-    @JoinColumn(name = "marca_id")
+    @JoinColumn(name = "modelo_id")
     private Modelo modelo;
 
     @Column(nullable = false)
@@ -31,11 +33,21 @@ public class Carro {
     @Column(nullable = false)
     private String cor;
 
+    private LocalDateTime timestampCadastro;
+
     public Carro() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public LocalDateTime getTimestampCadastro() {
+        return timestampCadastro;
+    }
+
+    public void setTimestampCadastro(LocalDateTime timestampCadastro) {
+        this.timestampCadastro = timestampCadastro;
     }
 
     public void setId(Long id) {

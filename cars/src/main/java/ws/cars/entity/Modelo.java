@@ -2,6 +2,8 @@ package ws.cars.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "modelo")
 public class Modelo {
@@ -10,15 +12,22 @@ public class Modelo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "modelo", cascade = CascadeType.ALL)
+    private List<Carro> carros;
+
     @ManyToOne
     @JoinColumn(name = "marca_id")
     private Marca marca;
 
     private String nome;
 
-    private Integer valorFipe;
+    private Double valorFipe;
 
     public Modelo() {
+    }
+
+    public Modelo(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
@@ -45,11 +54,11 @@ public class Modelo {
         this.nome = nome;
     }
 
-    public Integer getValorFipe() {
+    public Double getValorFipe() {
         return valorFipe;
     }
 
-    public void setValorFipe(Integer valorFipe) {
+    public void setValorFipe(Double valorFipe) {
         this.valorFipe = valorFipe;
     }
 }

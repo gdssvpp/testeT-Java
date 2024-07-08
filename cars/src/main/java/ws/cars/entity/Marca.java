@@ -2,6 +2,8 @@ package ws.cars.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "marca")
 public class Marca {
@@ -10,9 +12,14 @@ public class Marca {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String marca;
 
     public Marca() {
+    }
+
+    public Marca(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
